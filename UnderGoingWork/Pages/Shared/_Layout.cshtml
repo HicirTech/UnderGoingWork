@@ -4,105 +4,178 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - UnderGoingWork</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a8cd18d538.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="~/lib/MDB-Pro_4.11.0/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="~/lib/MDB-Pro_4.11.0/css/mdb.min.css">
+
+
+
+
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
 </head>
-<body>        
-<style>
-    header {
-        position: relative;
-        background-color: black;
-        height: 75vh;
-        min-height: 25rem;
-        width: 100%;
-        overflow: hidden;
-    }
+<body>
+    <style>
+        header {
+            position: relative;
+            background-color: black;
+            height: 100vh;
+            min-height: 25rem;
+            width: 100%;
+            overflow: hidden;
+        }
 
-    header video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: 0;
-        -ms-transform: translateX(-50%) translateY(-50%);
-        -moz-transform: translateX(-50%) translateY(-50%);
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-    }
+            header video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: 0;
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
 
-    header .container {
-        position: relative;
-        z-index: 2;
-    }
+            header .container {
+                position: relative;
+                z-index: 2;
+            }
 
-    header .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        opacity: 0.5;
-        z-index: 1;
-    }
+            header .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: black;
+                opacity: 0.5;
+                z-index: 1;
+            }
 
-    @@media (pointer: coarse) and (hover: none) {
-    header {
-        background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
-    }
-    header video {
-        display: none;
-    }
-    }
-</style>
-<header>
-    <div class="overlay"></div>
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
-    </video>
-    <div class="container h-100">
-        <div class="d-flex h-100 text-center align-items-center">
-            <div class="w-100 text-white">
-                <h1 class="display-3">Video Header</h1>
-                <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
+        .vertical-center {
+            min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+            display: flex;
+            align-items: center;
+        }
+
+
+        html * {
+            font-family: 'Oxanium', cursive;
+        }
+    </style>
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <source src="https://timdev-video-bucket.s3.ap-east-1.amazonaws.com/video.mp4" type="video/mp4">
+        </video>
+        <nav class="navbar navbar-expand-lg fixed-top py-3">
+            <div class="container">
+                <a href="#" class="navbar-brand text-uppercase text-white">Transparent Nav</a>
+
+                <button id="manuBar" class="text-white btn btn-link" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="#" class="nav-link text-uppercase text-white font-weight-bold">Entry1 <span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-uppercase text-white font-weight-bold">Entry2</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-uppercase  text-white  font-weight-bold">Entry3</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-uppercase text-white  font-weight-bold">Entry4</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-uppercase text-white  font-weight-bold">Entry5</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container h-100">
+            <div class="d-flex h-100 text-right align-items-center">
+                <div class="w-100 text-white col-12">
+                    <h1 class="display-3  font-weight-bold">Tim Dev</h1>
+                    <h1 class="display-4">You title here</h1>
+                    <p class="lead mb-0">Sub title here</p>
+                    <div class="col-12">
+                        <button class="btn btn-rounded peach-gradient">Button text 1</button>
+                        <button class="btn btn-rounded purple-gradient">Button text 2</button>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="btn-group">
+                            <button class="btn btn-rounded blue-gradient">Button text 3</button>
+                            <button class="btn btn-rounded aqua-gradient">Button text 4</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<section class="my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
-                <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code> class in the CSS.</p>
-                <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
-                <p class="mb-0">
-                    Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
-                </p>
+    @*<section class="my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto">
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - UnderGoingWork - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - UnderGoingWork - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+        </footer>*@
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/MDB-Pro_4.11.0/js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/lib/MDB-Pro_4.11.0/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/lib/MDB-Pro_4.11.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/lib/MDB-Pro_4.11.0/js/mdb.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @RenderSection("Scripts", required: false)
+
+    <script>
+
+        $(document).ready(async () => {
+
+
+             resizeHideMenuBar();
+        });
+        const resizeHideMenuBar =  () => {
+            var width = window.innerWidth;
+            console.info(width);
+            if (width >= 991) {
+                $(`#manuBar`).hide();
+            } else {
+                $(`#manuBar`).show();
+            }
+
+
+        };
+
+
+
+        $(window).on('resize', async () => {
+             resizeHideMenuBar();
+        });
+
+    </script>
 </body>
 </html>
